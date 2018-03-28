@@ -1,0 +1,62 @@
+#include <iostream>
+#include<string>
+
+using namespace std;
+
+int main()
+{
+  cout<< "Ahlan ya user ya habibi"<<endl;
+  cout<<"what do you like to do today?"<<endl;
+  cout<<"1-cipher a message"<<endl;
+  cout<<"2-decipher a message"<<endl;
+  cout<<"3-END"<<endl;
+  int choise;
+  int shifts;
+  string cipher="";
+  int ascii;
+  ascii=0;
+  shifts=0;
+  string message;
+  char letter;
+  cin>>choise;
+  cin.ignore();
+  int i;
+        cout<<"Enter the number of shifts: ";
+        cin>>shifts;
+        shifts=shifts%26;
+        if (choise==2){shifts*=-1;}
+        cin.ignore();
+        cout<<"Enter a message: ";
+        getline(cin,message);
+        for(i=0;i<message.length();i++){
+        letter=message[i];
+        ascii=(int)letter;
+        if(ascii>=65 &&ascii<=90){
+             ascii+=shifts;
+             if (ascii>90 ) {
+                    ascii-=26;}
+             if (ascii<65){
+                ascii+=26;
+             }
+        }
+        if(ascii>=97 && ascii<=122){
+            ascii+=shifts;
+            if (ascii>122 ){
+                ascii-=26;}
+            else if(ascii<97){
+                ascii+=26;
+            }
+        }
+        else{
+            ascii+=0;
+        }
+
+
+
+
+        cipher+=(char)ascii;}
+        cout<<cipher<<endl;
+
+
+    return 0;
+}
